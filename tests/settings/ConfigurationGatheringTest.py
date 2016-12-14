@@ -301,3 +301,7 @@ class ConfigurationGatheringTest(unittest.TestCase):
                              80)
             self.assertEqual(sections['all.python.codestyle'].defaults,
                              sections['all.python'])
+            self.assertEqual(str(sections['all']['ignore']), './vendor')
+            sections['default']['ignore'] = './user'
+            self.assertEqual(str(sections['all']['ignore']),
+                             './user,./vendor')
